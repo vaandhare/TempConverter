@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "871295633300",
+    "firebase_url": "https://tempconvertor.firebaseio.com",
+    "project_id": "tempconvertor",
+    "storage_bucket": "tempconvertor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871295633300:android:10697163173c0868",
+        "android_client_info": {
+          "package_name": "in.indekode.tempconverter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871295633300-utab77i6s5asrv56vfijfr331g8a86pi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXLpnmKgD4_lB53ULfOL2kelG0yHcFWfY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

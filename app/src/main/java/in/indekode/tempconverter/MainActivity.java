@@ -11,6 +11,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner unit1, unit2;
@@ -24,10 +29,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     static String u1, u2;
 
+    private Firebase mFirebase;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mDatabaseReference;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mFirebase = new Firebase("https://tempconvertor.firebaseio.com/");
+
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("TempConverter");
 
         unit1 = findViewById(R.id.unit1);
         unit1.setOnItemSelectedListener(this);
@@ -54,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 uservalue = fvalue.getText().toString();
                 if ( u1.equals("Celsius (°C)") && u2.equals("Celsius (°C)")){
                     cresult.setText("Conversion is: " + uservalue);
+                    TempConverter tempConverter = new TempConverter("Celsius (°C)", uservalue, "Celsius (°C)", uservalue);
+                    mDatabaseReference.setValue(tempConverter);
+
                 }
                 else if ( u1.equals("kelvin (K)") && u2.equals("kelvin (K)")){
                     cresult.setText("Conversion is: " + uservalue);
